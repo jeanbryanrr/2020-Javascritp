@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const copyPlugin = require('copy-webpack-plugin');
 const MinifyPlugin = require("babel-minify-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     mode: 'production',
     optimization: {
@@ -71,6 +72,7 @@ module.exports = {
             from: 'src/assets',
             to: 'assets/'
         }]),
-        new MinifyPlugin()
+        new MinifyPlugin(),
+        new CleanWebpackPlugin(),
     ]
 }

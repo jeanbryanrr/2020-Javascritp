@@ -2,6 +2,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const copyPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     mode: 'development',
     optimization: {
@@ -61,6 +62,7 @@ module.exports = {
         new copyPlugin([{
             from: 'src/assets',
             to: 'assets/'
-        }])
+        }]),
+        new CleanWebpackPlugin()
     ]
 }
